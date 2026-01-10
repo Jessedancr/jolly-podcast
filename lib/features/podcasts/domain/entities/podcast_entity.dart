@@ -6,7 +6,7 @@ class PodcastEntity {
   final String categoryName;
   final String categoryType;
   final String pictureUrl;
-  final String coverPictureUrl;
+  final String? coverPictureUrl;
   final String description;
   final String createdAt;
   final String updatedAt;

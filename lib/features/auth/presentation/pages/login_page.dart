@@ -74,14 +74,13 @@ class _LoginPageState extends State<LoginPage> {
               setState(() {
                 isLoading = false;
               });
-              showSuccessfulScaffoldMessage(context, 'Login successful');
-              // Navigate to home screen
+              showSuccessSnackBar(context, 'Login successful');
               Navigator.pushReplacementNamed(context, '/home');
             } else if (state is LoginUserError) {
               setState(() {
                 isLoading = false;
               });
-              showFailureScaffoldMessage(context, state.message);
+              showErrorSnackBar(context, state.message);
             }
           },
 

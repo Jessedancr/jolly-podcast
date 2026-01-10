@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void _showScaffoldMessage(
+void _showSnackBar(
   BuildContext context,
   String message,
   Color backgroundColor,
@@ -13,10 +13,10 @@ void _showScaffoldMessage(
   );
 }
 
-void showSuccessfulScaffoldMessage(BuildContext context, String message) {
-  _showScaffoldMessage(context, message, Colors.green);
+void showSuccessSnackBar(BuildContext context, String message) {
+  _showSnackBar(context, message, Colors.green);
 }
 
-void showFailureScaffoldMessage(BuildContext context, String message) {
-  _showScaffoldMessage(context, message, Colors.red);
+void showErrorSnackBar(BuildContext context, String message) {
+  _showSnackBar(context, message, Colors.red);
 }

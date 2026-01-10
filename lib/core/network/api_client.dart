@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:jolly_podcast/core/constants/utils.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiClient {
   final String baseUrl = dotenv.env['BASE_URL']!;
-  final FlutterSecureStorage storage = const FlutterSecureStorage();
+  final appSecureStorage = AppSecureStorage();
 
   // * Post method
   Future<http.Response> post({
@@ -15,9 +15,8 @@ class ApiClient {
     Map<String, dynamic>? body,
   }) async {
     try {
-      final accessToken = await storage.read(key: 'accessToken');
+      final accessToken = await appSecureStorage.getToken();
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      // final accessToken = prefs.getString('accessToken');
       final userId = prefs.getString('userId');
 
       if (accessToken == null || userId == null) {
@@ -84,7 +83,7 @@ class ApiClient {
   // * Get method
   Future<http.Response> get({required String endpoint}) async {
     try {
-      final accessToken = await storage.read(key: 'accessToken');
+      final accessToken = await appSecureStorage.getToken();
       final url = Uri.parse('$baseUrl/$endpoint');
 
       final response = await http.get(

@@ -8,7 +8,9 @@ class Library extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colorScheme.secondary,
-      body: Center(child: Text('LIBRARY')),
+      body: Center(
+        child: Text('LIBRARY', style: TextStyle(color: Colors.white)),
+      ),
     );
   }
 }

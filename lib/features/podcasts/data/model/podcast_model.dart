@@ -41,17 +41,17 @@ class PodcastModel extends PodcastEntity implements Equatable {
   factory PodcastModel.fromJson(Map<String, dynamic> json) {
     return PodcastModel(
       id: json['id'],
-      userId: json['userId'],
+      userId: json['user_id'],
       title: json['title'],
       author: json['author'],
-      categoryName: json['categoryName'],
-      categoryType: json['categoryType'],
-      pictureUrl: json['pictureUrl'],
-      coverPictureUrl: json['coverPictureUrl'],
+      categoryName: json['category_name'],
+      categoryType: json['category_type'],
+      pictureUrl: json['picture_url'],
+      coverPictureUrl: json['cover_picture_url'],
       description: json['description'],
-      createdAt: json['createdAt'],
-      updatedAt: json['updatedAt'],
-      subscriberCount: json['subscriberCount'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
+      subscriberCount: json['subscriber_count'],
       publisher: json['publisher'],
     );
   }

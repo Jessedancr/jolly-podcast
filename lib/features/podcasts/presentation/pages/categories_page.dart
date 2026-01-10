@@ -8,7 +8,9 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colorScheme.secondary,
-      body: Center(child: Text('CATEGORIES PAGE')),
+      body: Center(
+        child: Text('CATEGORIES PAGE', style: TextStyle(color: Colors.white)),
+      ),
     );
   }
 }

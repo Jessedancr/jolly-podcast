@@ -17,14 +17,15 @@ class PodcastRemoteDataSourceImpl implements PodcastRemoteDataSource {
       final res = await apiClient.get(endpoint: 'podcasts/top-jolly');
       final resBody = jsonDecode(res.body);
 
-      print('PODCASTS RES BODY: $resBody');
-
       if (res.statusCode != 200) {
         final String errorMessage = resBody['message'];
         return Left(errorMessage);
       }
-      final podcastModel = PodcastModel.fromJson(resBody);
-      return Right([podcastModel]);
+      final List<dynamic> podcastsData = resBody['data']['data']['data'] ?? [];
+      final List<PodcastModel> podcasts = podcastsData
+          .map((podcast) => PodcastModel.fromJson(podcast))
+          .toList();
+      return Right(podcasts);
     } catch (e) {
       print('Unexpected error fetching podcasts: ${e.toString()}');
       return const Left('Unexpected error. Please try again later.');
