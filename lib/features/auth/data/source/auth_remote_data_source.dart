@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:jolly_podcast/core/constants/utils.dart';
 import 'package:jolly_podcast/core/network/api_client.dart';
 import 'package:jolly_podcast/features/auth/data/models/user_model.dart';
 
 final ApiClient apiClient = ApiClient();
+final AppSecureStorage appSecureStorage = AppSecureStorage();
 
 abstract class AuthRemoteDataSource {
   Future<Either<String, UserModel>> login({
@@ -14,8 +15,6 @@ abstract class AuthRemoteDataSource {
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  final storage = const FlutterSecureStorage();
-
   @override
   Future<Either<String, UserModel>> login({
     required String phoneNumber,
@@ -36,8 +35,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final user = resBody['data']['user'];
       final int userId = user['id'];
       final token = resBody['data']['token'];
-      await storage.write(key: 'accessToken', value: token);
-      await storage.write(key: 'userId', value: userId.toString());
+
+      // Save token and user ID for persistent authentication
+      await appSecureStorage.saveToken(token);
+      await appSecureStorage.saveUserId(userId.toString());
 
       final userModel = UserModel.fromJson({...user, 'token': token});
       return Right(userModel);

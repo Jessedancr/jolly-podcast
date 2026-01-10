@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jolly_podcast/core/constants/helpers.dart';
+import 'package:jolly_podcast/core/constants/utils.dart';
 import 'package:jolly_podcast/core/constants/validators.dart';
 import 'package:jolly_podcast/core/widgets/snackbars.dart';
 import 'package:jolly_podcast/features/auth/presentation/bloc/auth_bloc.dart';
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
               });
               showSuccessfulScaffoldMessage(context, 'Login successful');
               // Navigate to home screen
-              // Navigator.pushReplacementNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/home');
             } else if (state is LoginUserError) {
               setState(() {
                 isLoading = false;

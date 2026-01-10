@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jolly_podcast/core/constants/helpers.dart';
+import 'package:jolly_podcast/core/constants/utils.dart';
 
 class JollyTextfield extends StatelessWidget {
   final TextEditingController controller;
