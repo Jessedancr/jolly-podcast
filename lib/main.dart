@@ -14,6 +14,7 @@ import 'package:jolly_podcast/features/podcasts/domain/usecase/get_top_podcast_u
 import 'package:jolly_podcast/features/podcasts/domain/usecase/get_trending_episodes_usecase.dart';
 import 'package:jolly_podcast/features/podcasts/presentation/bloc/pod_bloc.dart';
 import 'package:jolly_podcast/features/podcasts/presentation/pages/app.dart';
+import 'package:jolly_podcast/features/podcasts/presentation/pages/audio_page.dart';
 import 'package:jolly_podcast/features/podcasts/presentation/pages/podcast_episodes.dart';
 
 void main() async {
@@ -75,6 +76,22 @@ class MyApp extends StatelessWidget {
           return PodcastEpisodes(
             podcastId: podcastId,
             podcastTitle: podcastTitle,
+          );
+        },
+        '/audioPage': (context) {
+          final episode =
+              ModalRoute.of(context)!.settings.arguments
+                  as Map<String, dynamic>;
+          final String contentUrl = episode['contentUrl'];
+          final String pictureUrl = episode['pictureUrl'];
+          final String description = episode['description'];
+          final String title = episode['title'];
+
+          return AudioPage(
+            contentUrl: contentUrl,
+            pictureUrl: pictureUrl,
+            description: description,
+            title: title,
           );
         },
       },

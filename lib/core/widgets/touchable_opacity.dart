@@ -8,7 +8,7 @@ class TouchableOpacity extends StatefulWidget {
     super.key,
     required this.child,
     required this.onTap,
-    this.activeOpacity = 0.2,
+    this.activeOpacity = 0.3,
   });
 
   @override
