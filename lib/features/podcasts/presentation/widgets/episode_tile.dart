@@ -5,17 +5,17 @@ import 'package:jolly_podcast/core/constants/utils.dart';
 import 'package:jolly_podcast/core/widgets/touchable_opacity.dart';
 import 'package:jolly_podcast/features/podcasts/presentation/widgets/podcast_tile_cta_button.dart';
 
-class PodcastTile extends StatelessWidget {
-  final String author;
-  final String title;
+class EpisodeTile extends StatelessWidget {
+  final String podTitle;
+  final String episodeTitle;
   final String description;
   final String pictureUrl;
   final void Function()? onTap;
-  const PodcastTile({
+  const EpisodeTile({
     super.key,
-    required this.author,
+    required this.podTitle,
     required this.description,
-    required this.title,
+    required this.episodeTitle,
     required this.pictureUrl,
     required this.onTap,
   });
@@ -23,7 +23,7 @@ class PodcastTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(right: 10),
       width: 288,
       height: 500,
       decoration: BoxDecoration(
@@ -90,9 +90,9 @@ class PodcastTile extends StatelessWidget {
                     ),
                   ),
 
-                  // * AUTHOR
+                  // * PODCAST TITLE
                   Text(
-                    author,
+                    podTitle,
                     style: GoogleFonts.nunito(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
@@ -100,9 +100,9 @@ class PodcastTile extends StatelessWidget {
                     ),
                   ),
 
-                  // * TITLE
+                  // * EPISODE TITLE
                   Text(
-                    title,
+                    episodeTitle,
                     style: GoogleFonts.nunito(
                       fontSize: 18,
                       fontWeight: FontWeight.w800,

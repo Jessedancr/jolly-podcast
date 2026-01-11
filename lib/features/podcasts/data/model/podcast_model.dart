@@ -51,7 +51,7 @@ class PodcastModel extends PodcastEntity implements Equatable {
       description: json['description'],
       createdAt: json['created_at'],
       updatedAt: json['updated_at'],
-      subscriberCount: json['subscriber_count'],
+      subscriberCount: json['subscriber_count'] ?? 0,
       publisher: json['publisher'],
     );
   }

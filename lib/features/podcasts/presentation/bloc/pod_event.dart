@@ -5,4 +5,11 @@ class PodEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class GetPodsEvent extends PodEvent{}
+class GetTopPodsEvent extends PodEvent {}
+
+class GetEpisodesForPodEvent extends PodEvent {
+  final int podcastId;
+  GetEpisodesForPodEvent({required this.podcastId});
+}
+
+class GetTrendingEpisodesEvent extends PodEvent {}

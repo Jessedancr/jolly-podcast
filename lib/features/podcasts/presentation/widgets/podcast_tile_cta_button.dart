@@ -7,14 +7,13 @@ class PodcastTileCtaButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50,
-      height: 50,
-      padding: EdgeInsets.all(12),
+      width: 40,
+      height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
         border: Border.all(color: Colors.white, width: 2.0),
       ),
-      child: icon,
+      child: Center(child: icon),
     );
   }
 }

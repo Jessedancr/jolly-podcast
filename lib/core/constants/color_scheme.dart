@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
-// ThemeData seedScheme = ThemeData(
-//   colorScheme: ColorScheme.fromSeed(
-//     seedColor: Colors.lightGreenAccent.shade400,
-//   ),
-// );
-
 ThemeData appTheme = ThemeData(
+  scaffoldBackgroundColor: Color(0XFF121212),
   colorScheme: ColorScheme.light(
     primary: Colors.lightGreenAccent.shade400,
-    secondary: Colors.black54
+    secondary: Color(0XFFA0A0A0),
   ),
 );
