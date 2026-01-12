@@ -1,16 +1,15 @@
 # jolly_podcast
 
-A new Flutter project.
+STEPS TO RUN PROJECT
+- Clone repo
+- Run 'flutter pub get' to get packages used
+- Run the app using 'flutter run' or the play button in vs code
 
-## Getting Started
+CHOSEN STATE MANAGEMENT APPROACH
+- BLoC
 
-This project is a starting point for a Flutter application.
+ASSUMPTIONS MADE
+- I called the top jolly podcasts endpoint and I assumed that on clicking on a single podcast, you'll be taken to a screen which shows the episodes in that 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+IF GIVEN MORE TIME I WOULD IMPROVE THE FOLLOWING:
+- Playing a podcast when the app is on the background
