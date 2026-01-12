@@ -74,11 +74,11 @@ class PlayPauseButton extends StatelessWidget {
     return TouchableOpacity(
       onTap: onTap,
       child: Container(
-        height: 40,
-        width: 40,
+        height: 50,
+        width: 50,
         decoration: BoxDecoration(
           color: Color(0xFF1DB954),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(25),
           border: Border.all(width: 2.0, color: Colors.white),
         ),
         child: Center(child: child),

@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
               setState(() {
                 isLoading = false;
               });
-              showSuccessSnackBar(context, 'Login successful');
+              showSuccessSnackBar(context, 'Welcome to JollyCast');
               Navigator.pushReplacementNamed(context, '/home');
             } else if (state is LoginUserError) {
               setState(() {

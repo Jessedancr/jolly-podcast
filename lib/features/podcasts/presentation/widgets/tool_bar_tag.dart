@@ -8,7 +8,7 @@ class ToolBarTag extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 9, horizontal: 13),
       decoration: BoxDecoration(
-        color: Color(0XFF3e3e3e),
+        color: Color(0XFF3E3E3E).withOpacity(0.5),
         borderRadius: BorderRadius.circular(18),
       ),
       child: Row(

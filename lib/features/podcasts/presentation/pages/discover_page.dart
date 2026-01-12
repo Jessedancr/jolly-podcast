@@ -78,7 +78,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           appBar: AppBar(
             scrolledUnderElevation: 0.0,
             backgroundColor: Colors.transparent,
-            toolbarHeight: 65,
+            toolbarHeight: 70,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -127,7 +127,16 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                   episodeTitle: episode.title,
                                   description: episode.description,
                                   pictureUrl: episode.pictureUrl,
-                                  onTap: () {},
+                                  onTap: () => Navigator.pushNamed(
+                                    context,
+                                    '/audioPage',
+                                    arguments: {
+                                      'contentUrl': episode.contentUrl,
+                                      'pictureUrl': episode.pictureUrl,
+                                      'description': episode.description,
+                                      'title': episode.title,
+                                    },
+                                  ),
                                 );
                               },
                             ),

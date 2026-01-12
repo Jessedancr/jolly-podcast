@@ -1,7 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jolly_podcast/core/constants/utils.dart';
 import 'package:jolly_podcast/core/widgets/touchable_opacity.dart';
 import 'package:jolly_podcast/features/podcasts/presentation/widgets/podcast_tile_cta_button.dart';
 
@@ -27,17 +27,27 @@ class EpisodeTile extends StatelessWidget {
       width: 288,
       height: 500,
       decoration: BoxDecoration(
+        color: Colors.deepPurple,
         borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: NetworkImage(pictureUrl),
-          fit: BoxFit.cover,
-          onError: (exception, stackTrace) {
-            debugPrint('Failed to load podcast image: $exception');
-          },
-        ),
       ),
       child: Stack(
         children: [
+          // * EPISODE IMAGE
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageUrl: pictureUrl,
+                placeholder: (context, url) =>
+                    Center(child: CircularProgressIndicator()),
+              ),
+            ),
+          ),
+
           // * GRADIENT EFFECT
           Container(
             decoration: BoxDecoration(
@@ -70,7 +80,7 @@ class EpisodeTile extends StatelessWidget {
                     width: 100,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(pictureUrl),
+                        image: CachedNetworkImageProvider(pictureUrl),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -79,16 +89,28 @@ class EpisodeTile extends StatelessWidget {
                       children: [
                         TouchableOpacity(
                           onTap: onTap,
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundColor: context.colorScheme.primary
-                                .withOpacity(0.6),
-                            child: Icon(Icons.play_arrow, size: 40),
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 3.0,
+                              ),
+                              color: Color(0XFF20A726).withOpacity(0.61),
+                            ),
+                            child: Icon(
+                              Icons.play_arrow,
+                              size: 40,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
+                  const SizedBox(height: 8),
 
                   // * PODCAST TITLE
                   Text(

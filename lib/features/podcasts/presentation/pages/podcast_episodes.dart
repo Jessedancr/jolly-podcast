@@ -92,18 +92,16 @@ class _PodcastEpisodesState extends State<PodcastEpisodes> {
                         description: e.description,
                         episodeTitle: e.title,
                         pictureUrl: e.pictureUrl,
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            '/audioPage',
-                            arguments: {
-                              'contentUrl': e.contentUrl,
-                              'pictureUrl': e.pictureUrl,
-                              'description': e.description,
-                              'title': e.title,
-                            },
-                          );
-                        },
+                        onTap: () => Navigator.pushNamed(
+                          context,
+                          '/audioPage',
+                          arguments: {
+                            'contentUrl': e.contentUrl,
+                            'pictureUrl': e.pictureUrl,
+                            'description': e.description,
+                            'title': e.title,
+                          },
+                        ),
                       ),
                     );
                   },

@@ -26,7 +26,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         body: {'phone_number': phoneNumber, 'password': password},
       );
       final resBody = jsonDecode(res.body);
-      print('LOGIN RES BODY: $resBody');
 
       if (res.statusCode != 200) {
         final errorMessage = resBody['message'];
@@ -36,7 +35,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final int userId = user['id'];
       final token = resBody['data']['token'];
 
-      // Save token and user ID for persistent authentication
       await appSecureStorage.saveToken(token);
       await appSecureStorage.saveUserId(userId.toString());
 
